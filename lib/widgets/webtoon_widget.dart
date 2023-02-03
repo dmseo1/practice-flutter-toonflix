@@ -24,36 +24,40 @@ class Webtoon extends StatelessWidget {
         );
         //route: 위젯을 애니메이션 효과 등으로 감싸서, 하나의 화면처럼 보이게 하겠다.
       },
-      child: Column(
-        children: [
-          Hero(
-            tag: id,
-            child: Container(
-              width: 250,
-              clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 7,
-                      offset: const Offset(0, 0),
-                      color: Colors.black.withOpacity(0.5),
-                    )
-                  ]),
-              child: Image.network(thumb),
+      child: Transform.translate(
+        offset: const Offset(0, -60),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Hero(
+              tag: id,
+              child: Container(
+                width: 250,
+                clipBehavior: Clip.hardEdge,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 7,
+                        offset: const Offset(0, 0),
+                        color: Colors.black.withOpacity(0.5),
+                      )
+                    ]),
+                child: Image.network(thumb),
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w500,
+            const SizedBox(
+              height: 10,
             ),
-          ),
-        ],
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
